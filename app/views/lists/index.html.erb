@@ -1,0 +1,10 @@
+<div class="container">
+  <h2 class="text-center">My movie lists:</h2>
+  <ul class="movie-lists text-center">
+    <% @lists.each do |list| %>
+      <li><%= link_to list.name, list_path(list.id) %> <%= link_to "Remove", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Sure? This will also remove all bokmarks contained in the list." } %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to "Create new list", new_list_path %>
